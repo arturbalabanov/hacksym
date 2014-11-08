@@ -8,17 +8,17 @@
  </tileset>
  <layer name="wall" width="50" height="100">
   <data encoding="base64" compression="zlib">
-   eJztz8ENACEQA7Gl/6Zp4P43gEfKP14zsy7ZSX395fgvjlYcrThacbTiaMXRiqMVRyuOVhytOFpxtOJoxdGKoxVHK45WHK04WnG04mjF0YqjFUcrjlYcrThacbTiaMXRiqMVRyuOVhytOFpxtOJoxdGKoxVHK45WHK04WnG04mjF0Yqj1QuOG7YBVXwBiw==
+   eJzt2FEOgyAQAFG8/6V7ANpmXRYccCbxhyD40lhrr9badcgR7c7cWet9O0dHTTr6MR3j6ejH3uioTkc/9qQjE/H+yER0+H3Vj634nXznmjLnjFxP5LxV7xkrHNU94ZiRjvh6mTkV++rQMZqO+HqZORX76tAxmo74epk5FfvqOOf9I9IOn0d2zxlren/oGE1HfL3MnIp9T/ufoep5tCKfH7V7zljzNMduxy/HTulgpYOVDlY6WOlgpYOVDlY6WOlgpYOVDlY6WOlgpYOVDlY6WOlgpYOVDlY6WOlgpYOVDlY6WOlgpYPVP8cJxwf40QJC
   </data>
  </layer>
- <objectgroup name="triggers" visible="0">
-  <object name="player" x="31" y="67" width="31" height="29">
+ <objectgroup name="triggers">
+  <object name="player" x="149" y="169" width="31" height="29">
    <properties>
     <property name="player" value="player"/>
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="collision" visible="0">
+ <objectgroup name="collision">
   <object name="blockers" x="33" y="14" width="1375" height="17">
    <properties>
     <property name="blockers" value="blockers"/>
@@ -35,6 +35,76 @@
    </properties>
   </object>
   <object name="blockers" x="0" y="36" width="29" height="3134">
+   <properties>
+    <property name="blockers" value="blockers"/>
+   </properties>
+  </object>
+  <object name="blockers" x="353" y="32" width="29" height="257">
+   <properties>
+    <property name="blockers" value="blockers"/>
+   </properties>
+  </object>
+  <object name="blockers" x="352" y="387" width="29" height="93">
+   <properties>
+    <property name="blockers" value="blockers"/>
+   </properties>
+  </object>
+  <object name="blockers" x="32" y="482" width="447" height="28">
+   <properties>
+    <property name="blockers" value="blockers"/>
+   </properties>
+  </object>
+  <object name="blockers" x="448" y="513" width="32" height="543">
+   <properties>
+    <property name="blockers" value="blockers"/>
+   </properties>
+  </object>
+  <object name="blockers" x="448" y="1123" width="31" height="219">
+   <properties>
+    <property name="blockers" value="blockers"/>
+   </properties>
+  </object>
+  <object name="blockers" x="32" y="1313" width="415" height="29">
+   <properties>
+    <property name="blockers" value="blockers"/>
+   </properties>
+  </object>
+  <object name="blockers" x="33" y="1442" width="1374" height="28">
+   <properties>
+    <property name="blockers" value="blockers"/>
+   </properties>
+  </object>
+  <object name="blockers" x="992" y="36" width="30" height="312">
+   <properties>
+    <property name="blockers" value="blockers"/>
+   </properties>
+  </object>
+  <object name="blockers" x="993.333" y="418.667" width="30" height="93.3333">
+   <properties>
+    <property name="blockers" value="blockers"/>
+   </properties>
+  </object>
+  <object name="blockers" x="738.667" y="514.667" width="668" height="29">
+   <properties>
+    <property name="blockers" value="blockers"/>
+   </properties>
+  </object>
+  <object name="blockers" x="737.333" y="542.667" width="30" height="30.6667">
+   <properties>
+    <property name="blockers" value="blockers"/>
+   </properties>
+  </object>
+  <object name="blockers" x="736" y="642.667" width="30" height="634">
+   <properties>
+    <property name="blockers" value="blockers"/>
+   </properties>
+  </object>
+  <object name="blockers" x="736" y="1345.33" width="32" height="92">
+   <properties>
+    <property name="blockers" value="blockers"/>
+   </properties>
+  </object>
+  <object name="blockers" x="770.667" y="1028" width="638" height="28">
    <properties>
     <property name="blockers" value="blockers"/>
    </properties>
