@@ -19,6 +19,15 @@ class Progressbar(object):
         pygame.draw.rect(screen, self.bgcolor, res)
         pygame.draw.rect(screen, self.border_color, self.rect, 1)
 
+    def update(self, count):
+        if self.percentage + count < 0:
+            self.percentage = 0
+        elif self.percentage + count > 100:
+            self.percentage = 100
+        else:
+            self.percentage += count
+
+
 
 class Panel(object):
     ITEM_HEIGTH = 80
