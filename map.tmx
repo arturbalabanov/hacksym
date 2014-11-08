@@ -17,6 +17,11 @@
     <property name="player" value="player"/>
    </properties>
   </object>
+  <object name="mentor" x="450" y="1376.67" width="24.3333" height="22.3333">
+   <properties>
+    <property name="mentor" value="mentor"/>
+   </properties>
+  </object>
  </objectgroup>
  <objectgroup name="collision">
   <object name="blockers" x="33" y="14" width="1375" height="17">
