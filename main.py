@@ -18,14 +18,13 @@ from player import Player
 class Panel(object):
     ITEM_HEIGTH = 80
 
-    def __init__(self, bgcolor, screen):
+    def __init__(self, bgcolor):
         self.rect = pygame.Rect(Game.RESOLUTION[0] - Game.PANEL_WIDTH, 0,
                                 Game.PANEL_WIDTH, Game.RESOLUTION[1])
         self.bgcolor = bgcolor
-        self.screen = screen
 
-    def draw(self):
-        pygame.draw.rect(self.screen, self.bgcolor, self.rect)
+    def draw(self, screen):
+        pygame.draw.rect(screen, self.bgcolor, self.rect)
 
 
 class Game(object):
@@ -66,7 +65,7 @@ class Game(object):
 
             sprites.update(dt / 1000., self)
             screen.fill((100, 100, 100))
-            self.panel.draw()
+            self.panel.draw(screen)
             sprites.draw(screen)
             pygame.display.flip()
 
