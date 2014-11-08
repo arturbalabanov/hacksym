@@ -1,6 +1,7 @@
 import os
 
 import pygame
+import tmx
 
 from player import Player
 from widgets import Progressbar, Panel
