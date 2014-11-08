@@ -25,7 +25,7 @@ class Player(pygame.sprite.Sprite):
             self.rect.y += self.SPEED * dt
 
         new = self.rect
-        for cell in game.tilemap.layers['triggers'].collide(new, 'blockers'):
+        for cell in game.tilemap.layers['collision'].collide(new, 'blockers'):
             if last.right <= cell.left and new.right > cell.left:
                 new.right = cell.left
             if last.left >= cell.right and new.left < cell.right:
