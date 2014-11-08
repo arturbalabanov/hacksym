@@ -40,6 +40,9 @@ class Game(object):
                 if event.type == pygame.KEYDOWN and \
                         event.key == pygame.K_ESCAPE:
                     return
+                if event.type == pygame.KEYDOWN and \
+                        event.key == pygame.K_RETURN:
+                    return
 
             sprites.update(dt / 1000., self)
             screen.fill((100, 100, 100))
