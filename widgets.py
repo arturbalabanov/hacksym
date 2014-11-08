@@ -12,12 +12,16 @@ class Progressbar(object):
         self.bgcolor = bgcolor
         self.border_color = border_color
         self.label = label
+        self.font = pygame.font.SysFont('Arial', 14, bold=True)
 
     def draw(self, screen):
         res = pygame.Rect(200, 200, self.width * self.percentage / 100,
                           self.height)
         pygame.draw.rect(screen, self.bgcolor, res)
         pygame.draw.rect(screen, self.border_color, self.rect, 1)
+        text = "%s: %.1f%%" % (self.label, self.percentage)
+        screen.blit(
+            self.font.render(text, True, (0, 0, 0), (0, 0)), self.rect)
 
     def update(self, count):
         if self.percentage + count < 0:
