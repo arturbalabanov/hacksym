@@ -28,8 +28,8 @@ class Game(object):
                     wall.rect = pygame.rect.Rect((x, y), block.get_size())
         sprites.add(self.walls)
 
-        self.test_progressbar = Progressbar(100, 20, 33, (0, 0, 200),
-                                            (0, 0, 0), "Test")
+        self.test_progressbar = Progressbar(140, 20, 33, (0, 0, 200),
+                                            (0, 0, 0), "Programming")
 
         while 1:
             dt = clock.tick(Options.FPS)
