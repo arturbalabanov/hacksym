@@ -9,16 +9,16 @@ class Player(pygame.sprite.Sprite):
         self.image = pygame.image.load(os.path.join('img', 'player.png'))
         self.rect = pygame.rect.Rect((320, 240), self.image.get_size())
 
-    def update(self):
+    def update(self, dt):
         key = pygame.key.get_pressed()
         if key[pygame.K_LEFT]:
-            self.rect.x -= 10
+            self.rect.x -= 300 * dt
         if key[pygame.K_RIGHT]:
-            self.rect.x += 10
+            self.rect.x += 300 * dt
         if key[pygame.K_UP]:
-            self.rect.y -= 10
+            self.rect.y -= 300 * dt
         if key[pygame.K_DOWN]:
-            self.rect.y += 10
+            self.rect.y += 300 * dt
 
 
 class Game(object):
@@ -32,7 +32,7 @@ class Game(object):
         self.player = Player(sprites)
 
         while 1:
-            clock.tick(self.FPS)
+            dt = clock.tick(self.FPS)
 
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
@@ -41,7 +41,7 @@ class Game(object):
                         event.key == pygame.K_ESCAPE:
                     return
 
-            sprites.update()
+            sprites.update(dt / 1000.)
             screen.fill((200, 200, 200))
             sprites.draw(screen)
             pygame.display.flip()
