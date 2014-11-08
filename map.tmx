@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="50" height="100" tilewidth="32" tileheight="32">
+ <tileset firstgid="1" name="tiles" tilewidth="32" tileheight="32">
+  <image source="img/tiles.png" width="32" height="32"/>
+ </tileset>
+ <tileset firstgid="2" name="triggers" tilewidth="32" tileheight="32">
+  <image source="img/triggers.png" width="192" height="32"/>
+ </tileset>
+ <layer name="wall" width="50" height="100">
+  <data encoding="base64" compression="zlib">
+   eJztlttuAyEMRNn8/0fnKdoIYTy+sIbVWDpSm4A9Ywzt1Vq7XkBWZObyxichR3ZPVvQarRetK+1f6afPewmfo7kQrdo6az9HHq7J99q+UW3U0yy/RQtSU1o36wfaT633kl+vD+v9scyn5kPSgb7nkTubda8jvRv5scy+dd1oH9JTrZ52Divm0Lun3z/73VLH+7/Hqr9dnvXe+fPo8OhBc6HvoyVvNDLPyLNHemuQmbXONBozLZKHfq+WW/rO40laP3vDNV3W9f3nHu3o2sxA5nZF3Who9+RJEK27e0C8SPdrZzQvp/AGD72Pai3kPpNqDfRBH4QQQgjZi19U64jqP9WHFNW6srxUa4qcwSk+LFGtNcPDzj6sXqu1eM/Buz5y5mgdy9ro7GXoiO71evj/2TMT2T1AaiHaVsx91syumnukbua9e9pHr/1EL5LmTB9PeFn17vV5VnuJvG2WGidyuv5/H9Ua6IMQQgghZD/aBhqyfLzByyiqNWX5ONETfewFfRBCCCGEEEIIIYTctA00ZPn4Ark8Dqs=
+  </data>
+ </layer>
+ <objectgroup name="triggers">
+  <object name="player" x="31" y="67" width="31" height="29">
+   <properties>
+    <property name="player" value="player"/>
+   </properties>
+  </object>
+ </objectgroup>
+</map>
