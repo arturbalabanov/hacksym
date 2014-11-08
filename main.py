@@ -4,21 +4,28 @@ import pygame
 
 
 class Player(pygame.sprite.Sprite):
+    SPEED = 500
+
     def __init__(self, *groups):
         super(Player, self).__init__(*groups)
         self.image = pygame.image.load(os.path.join('img', 'player.png'))
         self.rect = pygame.rect.Rect((320, 240), self.image.get_size())
 
-    def update(self, dt):
+    def update(self, dt, game):
+        last = self.rect.copy()
+
         key = pygame.key.get_pressed()
         if key[pygame.K_LEFT]:
-            self.rect.x -= 300 * dt
+            self.rect.x -= self.SPEED * dt
         if key[pygame.K_RIGHT]:
-            self.rect.x += 300 * dt
+            self.rect.x += self.SPEED * dt
         if key[pygame.K_UP]:
-            self.rect.y -= 300 * dt
+            self.rect.y -= self.SPEED * dt
         if key[pygame.K_DOWN]:
-            self.rect.y += 300 * dt
+            self.rect.y += self.SPEED * dt
+
+        for cell in pygame.sprite.spritecollide(self, game.walls, False):
+            self.rect = last
 
 
 class Game(object):
@@ -31,6 +38,17 @@ class Game(object):
         sprites = pygame.sprite.Group()
         self.player = Player(sprites)
 
+        self.walls = pygame.sprite.Group()
+        block = pygame.image.load(os.path.join('img', 'wall.png'))
+        for x in range(0, self.RESOLUTION[0], 32):
+            for y in range(0, self.RESOLUTION[1], 32):
+                if x in (0, self.RESOLUTION[0]-32) or \
+                        y in (0, self.RESOLUTION[1]-32):
+                    wall = pygame.sprite.Sprite(self.walls)
+                    wall.image = block
+                    wall.rect = pygame.rect.Rect((x, y), block.get_size())
+        sprites.add(self.walls)
+
         while 1:
             dt = clock.tick(self.FPS)
 
@@ -41,8 +59,8 @@ class Game(object):
                         event.key == pygame.K_ESCAPE:
                     return
 
-            sprites.update(dt / 1000.)
-            screen.fill((200, 200, 200))
+            sprites.update(dt / 1000., self)
+            screen.fill((100, 100, 100))
             sprites.draw(screen)
             pygame.display.flip()
 
