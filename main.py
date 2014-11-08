@@ -35,6 +35,12 @@ class Game(object):
             dt = clock.tick(Options.FPS)
 
             for event in pygame.event.get():
+                if event.type == pygame.KEYDOWN and \
+                        event.key == pygame.K_w:
+                    self.test_progressbar.update(5)
+                if event.type == pygame.KEYDOWN and \
+                        event.key == pygame.K_s:
+                    self.test_progressbar.update(-5)
                 if event.type == pygame.QUIT:
                     return
                 if event.type == pygame.KEYDOWN and \
