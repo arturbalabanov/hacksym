@@ -5,8 +5,8 @@ from config import Options
 
 class Progressbar(object):
     def __init__(self, width, height, percentage, bgcolor, border_color, label):
-        self.rect = pygame.Rect(200 + 1, 200 + 1, width, height)
-        self._border = pygame.Rect(200, 200, width, height)
+        self.rect = pygame.Rect(200, 200, width, height)
+        self._border = pygame.Rect(200 - 1, 200 - 1, width + 1, height + 1)
         self.percentage = percentage
         self.bgcolor = bgcolor
         self.border_color = border_color
