@@ -1,6 +1,7 @@
 import os
 
 import pygame
+
 import tmx
 
 from player import Player
@@ -28,19 +29,12 @@ class Game(object):
                     wall.rect = pygame.rect.Rect((x, y), block.get_size())
         sprites.add(self.walls)
 
-        self.test_progressbar = Progressbar(140, 20, 33, (0, 0, 200),
-                                            (0, 0, 0), "Programming")
-
+        # self.test_progressbar = Progressbar(140, 20, 33, (0, 0, 200),
+        #                                     (0, 0, 0), "Programming")
         while 1:
             dt = clock.tick(Options.FPS)
 
             for event in pygame.event.get():
-                if event.type == pygame.KEYDOWN and \
-                        event.key == pygame.K_w:
-                    self.test_progressbar.update(5)
-                if event.type == pygame.KEYDOWN and \
-                        event.key == pygame.K_s:
-                    self.test_progressbar.update(-5)
                 if event.type == pygame.QUIT:
                     return
                 if event.type == pygame.KEYDOWN and \
@@ -53,7 +47,7 @@ class Game(object):
             sprites.update(dt / 1000., self)
             screen.fill((100, 100, 100))
             self.panel.draw(screen)
-            self.test_progressbar.draw(screen)
+            # self.test_progressbar.draw(screen)
             sprites.draw(screen)
             pygame.display.flip()
 
