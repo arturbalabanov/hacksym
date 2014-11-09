@@ -24,12 +24,12 @@ class Mentor(BaseCharacer):
 
     def visited(self, player):
         chance = mentor_successful_interaction(player.soft_skills)
-        if chance < random.randint(1, 100):
+        if chance > random.randint(1, 100):
             player.soft_skills += 1
             res = player.get_random_bonus()
             text = 'You got %d points in your %s.' % (res[0], res[1])
         else:
-            text = 'You asked your mentor stupid question.'
+            text = 'You asked your mentor a stupid question.'
 
         self.change_to_random_place()
         popup = Popup((255, 128, 0), text, show=True)

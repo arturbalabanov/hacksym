@@ -32,7 +32,7 @@ class Game(object):
 
         start_cell = self.tilemap.layers['triggers'].find('player')[0]
         self.player = Player((start_cell.px, start_cell.py),
-                             5, 3, 5, self.sprites)
+                             6, 6, 7, self.sprites)
 
         mentor_spawn_points = self.tilemap.layers['triggers'].find('mentor')
 
