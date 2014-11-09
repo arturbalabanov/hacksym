@@ -2,17 +2,32 @@
 <map version="1.0" orientation="orthogonal" renderorder="right-down" width="50" height="100" tilewidth="32" tileheight="32">
  <tileset firstgid="1" name="tiles" tilewidth="32" tileheight="32">
   <image source="img/tiles.png" width="32" height="32"/>
+  <terraintypes>
+   <terrain name="New Terrain" tile="-1"/>
+  </terraintypes>
  </tileset>
  <tileset firstgid="2" name="triggers" tilewidth="32" tileheight="32">
   <image source="img/triggers.png" width="192" height="32"/>
  </tileset>
+ <tileset firstgid="8" name="Team" tilewidth="32" tileheight="32">
+  <image source="img/team.png" width="32" height="32"/>
+ </tileset>
+ <tileset firstgid="9" name="Laptop" tilewidth="32" tileheight="32">
+  <image source="img/laptop.png" width="32" height="32"/>
+ </tileset>
+ <tileset firstgid="10" name="enemy" tilewidth="32" tileheight="32">
+  <image source="img/enemy.png" width="32" height="32"/>
+ </tileset>
+ <tileset firstgid="11" name="enemy" tilewidth="32" tileheight="32">
+  <image source="img/enemy2.png" width="32" height="32"/>
+ </tileset>
  <layer name="wall" width="50" height="100">
   <data encoding="base64" compression="zlib">
-   eJzt2FEOgyAQAFG8/6V7ANpmXRYccCbxhyD40lhrr9badcgR7c7cWet9O0dHTTr6MR3j6ejH3uioTkc/9qQjE/H+yER0+H3Vj634nXznmjLnjFxP5LxV7xkrHNU94ZiRjvh6mTkV++rQMZqO+HqZORX76tAxmo74epk5FfvqOOf9I9IOn0d2zxlren/oGE1HfL3MnIp9T/ufoep5tCKfH7V7zljzNMduxy/HTulgpYOVDlY6WOlgpYOVDlY6WOlgpYOVDlY6WOlgpYOVDlY6WOlgpYOVDlY6WOlgpYOVDlY6WOlgpYPVP8cJxwf40QJC
+   eJztmMsOwyAMBNNbo/7//1YcIkUIsL1AutAdKZeG2ExxeOR1HMdrk8tLpO2seKVndvUojdHZmTfap1Je65mSx5n99nbmRaj9X4mP45n7byx1Veu3pw9MHhbXeFketXpE83qIvB/XeFke78L9SF6EPN697zPfj9HkuT3vyIi6Gs2M9cNTVwygdTVzHYzgna9KzySeWgctvPPVnVqNPeXReldbHrP3yZE+JVrz1uh51/PcU+eMJzxG8wuPGcjDHw9pMyJv6+yXk99j9mjNd/k9xCO6hyu1Z6graz+LnoF+9X707K2ZPLxncW9M1vkK3V8h8VGP3vPaCI97PaAePTVVi8laV9GYLQ9r/FfxsMZ/FQ8kXi0+8/nDwwrjgeZM7LKe94B4RNdVpI0nr7X+Wh7R7xZIm0Skzv65rqLxkDYj8u72nWHUeoQQ+SZw9bn0m9ZBLOeMmLt5rHbVPFZCHlzIgwt5cCEPLuTBhTy4kAcX8uBCHlzIgwt5cCEPLuTBhTy4kAcX8uBCHlzIgwt5cCEPLuTBhTy4kAcX8uBCHlzIg4uWxw7XF4/WBCI=
   </data>
  </layer>
- <objectgroup name="triggers">
-  <object name="player" x="149" y="169" width="31" height="29">
+ <objectgroup name="triggers" visible="0">
+  <object name="player" x="129" y="169" width="31" height="29">
    <properties>
     <property name="player" value="player"/>
    </properties>
@@ -38,7 +53,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="collision">
+ <objectgroup name="collision" visible="0">
   <object name="blockers" x="33" y="14" width="1375" height="17">
    <properties>
     <property name="blockers" value="blockers"/>
