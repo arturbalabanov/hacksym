@@ -3,7 +3,7 @@ import pygame
 import tmx
 
 from player import Player
-from widgets import Panel
+from widgets import Panel, Progressbar
 from config import Options
 from npcs import Mentor
 
@@ -14,7 +14,7 @@ class Game(object):
 
         sprites = pygame.sprite.Group()
 
-        self.panel = Panel((255, 0, 0))
+        self.panel = Panel((170, 170, 170))
 
         self.tilemap = tmx.load('map.tmx', screen.get_size())
 
@@ -28,8 +28,9 @@ class Game(object):
 
         self.tilemap.layers.append(self.sprites)
 
-        # self.test_progressbar = Progressbar(140, 20, 33, (0, 0, 200),
-        #                                     (0, 0, 0), "Programming")
+        self.programming_progress = Progressbar(485, 20, 150, 20, 33,
+                                                (0, 0, 200),
+                                                (0, 0, 0), " Programming")
         mentor_exists = False
         while 1:
             dt = clock.tick(Options.FPS)
@@ -68,10 +69,10 @@ class Game(object):
             sprites.update(dt / 1000., self)
             screen.fill((100, 100, 100))
             self.panel.draw(screen)
-            # self.test_progressbar.draw(screen)
             sprites.draw(screen)
             self.tilemap.draw(screen)
             self.panel.draw(screen)
+            self.programming_progress.draw(screen)
             pygame.display.flip()
 
 

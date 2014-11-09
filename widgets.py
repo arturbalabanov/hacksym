@@ -4,10 +4,13 @@ from config import Options
 
 
 class Progressbar(object):
-    def __init__(self, width, height, percentage, bgcolor, border_color, label):
+    def __init__(self, x, y, width, height, percentage,
+                 bgcolor, border_color, label):
         self.width = width
         self.height = height
-        self.rect = pygame.Rect(200, 200, width, height)
+        self.x = x
+        self.y = y
+        self.rect = pygame.Rect(x, y, width, height)
         self.percentage = percentage
         self.bgcolor = bgcolor
         self.border_color = border_color
@@ -15,7 +18,7 @@ class Progressbar(object):
         self.font = pygame.font.SysFont('Arial', 14, bold=True)
 
     def draw(self, screen):
-        res = pygame.Rect(200, 200, self.width * self.percentage / 100,
+        res = pygame.Rect(self.x, self.y, self.width * self.percentage / 100,
                           self.height)
         pygame.draw.rect(screen, self.bgcolor, res)
         pygame.draw.rect(screen, self.border_color, self.rect, 1)
@@ -30,7 +33,6 @@ class Progressbar(object):
             self.percentage = 100
         else:
             self.percentage += count
-
 
 
 class Panel(object):
