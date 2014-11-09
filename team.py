@@ -53,17 +53,18 @@ class Team(object):
 
         color = (74, 119, 233)
         color_picked = (255, 128, 0)
+        current = color
 
         while self.running:
             # very bad design ahead, take a pokemon with you
 
             menu.update(pygame.event.get(), clock.tick(30)/1000.)
             screen.blit(background, (0, 0))
-            for event in pygame.event.get():
-                if event.type == pygame.MOUSEBUTTONDOWN:
-                    x, y = event.pos
-                    if rect10.collidepoint(x, y):
-                        current = color_picked
+            # for event in pygame.event.get():
+            #     if event.type == pygame.MOUSEBUTTONDOWN:
+            #         x, y = event.pos
+            #         if rect10.collidepoint(x, y):
+            #             current = color_picked
             pygame.draw.rect(screen, (255, 0, 0), rect1)
             pygame.draw.rect(screen, (current), rect2)
             pygame.draw.rect(screen, (current), rect3)

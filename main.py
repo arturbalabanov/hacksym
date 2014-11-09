@@ -1,4 +1,5 @@
 import random
+import sys
 
 import pygame
 
@@ -57,6 +58,8 @@ class Game(object):
 
             place = 1
             for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    sys.exit(0)
                 if event.type == EVERY_SECOND:
                     self.programming_progress.update(0.3)
                     self.design_progress.update(0.4)
@@ -69,15 +72,6 @@ class Game(object):
                             mentor_exists = True
                         else:
                             self.m.change_to_random_place()
-
-                if event.type == pygame.QUIT:
-                    return
-                if event.type == pygame.KEYDOWN and \
-                        event.key == pygame.K_ESCAPE:
-                    return
-                if event.type == pygame.KEYDOWN and \
-                        event.key == pygame.K_RETURN:
-                    return
                 if event.type == pygame.MOUSEBUTTONDOWN:
                     x, y = event.pos
                     if self.popup.rect.collidepoint(x, y):
