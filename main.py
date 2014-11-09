@@ -1,3 +1,5 @@
+import random
+
 import pygame
 
 import tmx
@@ -24,8 +26,7 @@ class Game(object):
         self.player = Player((start_cell.px, start_cell.py),
                              5, 3, 5, self.sprites)
 
-        mc = self.tilemap.layers['triggers'].find('mentor')[2]
-        self.m = Mentor((mc.px, mc.py), self.sprites)
+        mentor_spawn_points = self.tilemap.layers['triggers'].find('mentor')
 
         self.tilemap.layers.append(self.sprites)
 
@@ -43,6 +44,15 @@ class Game(object):
                 if event.type == pygame.KEYDOWN and \
                         event.key == pygame.K_RETURN:
                     return
+                if event.type == pygame.KEYDOWN and \
+                        event.key == pygame.K_m:
+                    mc = mentor_spawn_points[1]
+                    self.m = Mentor((mc.px, mc.py), self.sprites)
+                if event.type == pygame.KEYDOWN and \
+                        event.key == pygame.K_c:
+                    place = random.randint(0, 3)
+                    mc = mentor_spawn_points[place]
+                    self.m.change_place(mc.px, mc.py)
 
             self.tilemap.update(dt / 1000., self)
             sprites.update(dt / 1000., self)
