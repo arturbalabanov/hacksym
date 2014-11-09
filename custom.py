@@ -3,7 +3,7 @@ import os
 import pygame
 import kezmenu
 
-from main import Game
+from team import Team
 
 
 class Custom(object):
@@ -13,7 +13,7 @@ class Custom(object):
         clock = pygame.time.Clock()
         background = pygame.image.load(os.path.join('img', 'background.png'))
         menu = kezmenu.KezMenu(
-            ['Done!', lambda: Game().main(screen)],
+            ['Done!', lambda: Team().main(screen)],
         )
         menu.font = pygame.font.SysFont('Arial', 40, bold=True)
         menu.x = 320
