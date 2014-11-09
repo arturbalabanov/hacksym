@@ -2,6 +2,7 @@ import pygame
 
 # from config import Options
 from characters import BaseCharacer
+from npcs import Mentor
 
 
 class Player(BaseCharacer):
@@ -39,3 +40,4 @@ class Player(BaseCharacer):
                 new.top = cell.bottom
 
         game.tilemap.set_focus(new.x, new.y)
+
