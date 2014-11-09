@@ -2,6 +2,7 @@ import random
 
 from characters import BaseCharacer
 from formulas import mentor_successful_interaction
+from widgets import Popup
 
 
 class Mentor(BaseCharacer):
@@ -26,13 +27,13 @@ class Mentor(BaseCharacer):
         if chance < random.randint(1, 100):
             player.soft_skills += 1
             res = player.get_random_bonus()
-            print 'You got %d points in your %s.' % (res[0], res[1])
-            print '-----------------------'
-            print 'Programming: %d' % player.programming
-            print 'Design: %d' % player.design
-            print 'Soft skills: %d' % player.soft_skills
+            text = 'You got %d points in your %s.' % (res[0], res[1])
+        else:
+            text = 'You asked your mentor stupid question.'
 
         self.change_to_random_place()
+        popup = Popup((255, 128, 0), text, show=True)
+        return popup
 
     def update(self, dt, game):
         pass

@@ -49,7 +49,7 @@ class Game(object):
                                                 (0, 0, 0), " Idea")
         self.player_programming_skill = pygame.Rect(485, 200, 150, 23)
 
-        self.popup = Popup((255, 128, 0), "This is a very long sentance")
+        self.popup = Popup((255, 128, 0), "", show=False)
 
         mentor_exists = False
         while 1:
@@ -88,7 +88,7 @@ class Game(object):
                 new = self.player.rect
                 cell = self.m.rect
                 if last.colliderect(cell):
-                    self.m.visited(self.player)
+                    popup = self.m.visited(self.player)
 
             self.tilemap.update(dt / 1000., self)
             sprites.update(dt / 1000., self)
