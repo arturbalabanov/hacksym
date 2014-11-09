@@ -1,3 +1,5 @@
+import random
+
 import pygame
 
 import tmx
@@ -9,15 +11,23 @@ from npcs import Mentor
 
 
 class Game(object):
+    def __init__(self):
+        self.pr_pr = 0
+        self.d_pr = 0
+        self.i_pr = 80
+
     def main(self, screen):
         clock = pygame.time.Clock()
-
         sprites = pygame.sprite.Group()
 
+        EVERY_SECOND = pygame.USEREVENT + 1
+        EVERY_TEN_SECONDS = pygame.USEREVENT + 2
+        second = 1000  # milliseconds
+        pygame.time.set_timer(EVERY_SECOND, second)
+        pygame.time.set_timer(EVERY_TEN_SECONDS, second*5)
+
         self.panel = Panel((170, 170, 170))
-
         self.tilemap = tmx.load('map.tmx', screen.get_size())
-
         self.sprites = tmx.SpriteLayer()
 
         start_cell = self.tilemap.layers['triggers'].find('player')[0]
@@ -28,13 +38,13 @@ class Game(object):
 
         self.tilemap.layers.append(self.sprites)
 
-        self.programming_progress = Progressbar(485, 25, 150, 23, 33,
+        self.programming_progress = Progressbar(485, 25, 150, 23, self.pr_pr,
                                                 (74, 119, 233),
                                                 (0, 0, 0), " Programming")
-        self.design_progress = Progressbar(485, 75, 150, 23, 50.3,
+        self.design_progress = Progressbar(485, 75, 150, 23, self.d_pr,
                                                 (67, 166, 56),
                                                 (0, 0, 0), " Design")
-        self.idea_progress = Progressbar(485, 125, 150, 23, 80,
+        self.idea_progress = Progressbar(485, 125, 150, 23, self.i_pr,
                                                 (255, 128, 0),
                                                 (0, 0, 0), " Idea")
         self.player_programming_skill = pygame.Rect(485, 200, 150, 23)
@@ -44,6 +54,19 @@ class Game(object):
 
             place = 1
             for event in pygame.event.get():
+                if event.type == EVERY_SECOND:
+                    self.programming_progress.update(0.3)
+                    self.design_progress.update(0.4)
+                if event.type == EVERY_SECOND:
+                    if random.randint(0, 100) < 80:
+                        if not mentor_exists:
+                            mc = mentor_spawn_points[random.randint(0, 3)]
+                            self.m = Mentor((mc.px, mc.py), mentor_spawn_points,
+                                            self.sprites)
+                            mentor_exists = True
+                        else:
+                            self.m.change_to_random_place()
+
                 if event.type == pygame.QUIT:
                     return
                 if event.type == pygame.KEYDOWN and \
@@ -65,10 +88,8 @@ class Game(object):
 
             if mentor_exists:
                 last = self.player.rect.copy()
-                print last.right
                 new = self.player.rect
                 cell = self.m.rect
-                print cell.left
                 if last.colliderect(cell):
                     self.m.visited(self.player)
 
