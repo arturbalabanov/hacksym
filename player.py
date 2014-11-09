@@ -1,18 +1,15 @@
-import os
-
 import pygame
 
 # from config import Options
+from characters import BaseCharacer
 
 
-class Player(pygame.sprite.Sprite):
+class Player(BaseCharacer):
     SPEED = 500
 
     def __init__(self, location, programming=0, design=0, soft_skills=0,
                  *groups):
-        super(Player, self).__init__(*groups)
-        self.image = pygame.image.load(os.path.join('img', 'player.png'))
-        self.rect = pygame.rect.Rect(location, self.image.get_size())
+        super(Player, self).__init__(location, *groups)
         self.programming = programming
         self.design = design
         self.soft_skills = soft_skills
