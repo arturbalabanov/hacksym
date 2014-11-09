@@ -1,13 +1,9 @@
-import os
-
-import pygame
+from characters import BaseCharacer
 
 
-class Mentor(pygame.sprite.Sprite):
+class Mentor(BaseCharacer):
     def __init__(self, location, *groups):
-        super(Mentor, self).__init__(*groups)
-        self.image = pygame.image.load(os.path.join('img', 'mentor.png'))
-        self.rect = pygame.rect.Rect(location, self.image.get_size())
+        super(Mentor, self).__init__(location, *groups)
 
     def update(self):
         pass
