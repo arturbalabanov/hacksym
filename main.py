@@ -5,6 +5,7 @@ import tmx
 from player import Player
 from widgets import Panel
 from config import Options
+from npcs import Mentor
 
 
 class Game(object):
@@ -18,9 +19,14 @@ class Game(object):
         self.tilemap = tmx.load('map.tmx', screen.get_size())
 
         self.sprites = tmx.SpriteLayer()
+
         start_cell = self.tilemap.layers['triggers'].find('player')[0]
         self.player = Player((start_cell.px, start_cell.py),
                              5, 3, 5, self.sprites)
+
+        mc = self.tilemap.layers['triggers'].find('mentor')[2]
+        self.m = Mentor((mc.px, mc.py), self.sprites)
+
         self.tilemap.layers.append(self.sprites)
 
         # self.test_progressbar = Progressbar(140, 20, 33, (0, 0, 200),
