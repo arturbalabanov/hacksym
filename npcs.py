@@ -19,5 +19,9 @@ class Mentor(BaseCharacer):
 
         self.change_place(mc.px, mc.py)
 
+    def visited(self, player, locations):
+        print 'Visited'
+        self.change_to_random_place(locations)
+
     def update(self, dt, game):
         pass
