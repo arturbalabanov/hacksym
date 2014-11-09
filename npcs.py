@@ -26,3 +26,15 @@ class Mentor(BaseCharacer):
 
     def update(self, dt, game):
         pass
+
+
+class Member(BaseCharacer):
+    def __init__(self, location, programming=0, design=0, soft_skills=0,
+                 *groups):
+        super(Member, self).__init__(location, *groups)
+        self.programming = programming
+        self.design = design
+        self.soft_skills = soft_skills
+
+    def update(self, dt, game):
+        pass
