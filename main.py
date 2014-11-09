@@ -28,9 +28,16 @@ class Game(object):
 
         self.tilemap.layers.append(self.sprites)
 
-        self.programming_progress = Progressbar(485, 20, 150, 20, 33,
-                                                (0, 0, 200),
+        self.programming_progress = Progressbar(485, 25, 150, 23, 33,
+                                                (74, 119, 233),
                                                 (0, 0, 0), " Programming")
+        self.design_progress = Progressbar(485, 75, 150, 23, 50.3,
+                                                (67, 166, 56),
+                                                (0, 0, 0), " Design")
+        self.idea_progress = Progressbar(485, 125, 150, 23, 80,
+                                                (255, 128, 0),
+                                                (0, 0, 0), " Idea")
+        self.player_programming_skill = pygame.Rect(485, 200, 150, 23)
         mentor_exists = False
         while 1:
             dt = clock.tick(Options.FPS)
@@ -73,6 +80,8 @@ class Game(object):
             self.tilemap.draw(screen)
             self.panel.draw(screen)
             self.programming_progress.draw(screen)
+            self.design_progress.draw(screen)
+            self.idea_progress.draw(screen)
             pygame.display.flip()
 
 

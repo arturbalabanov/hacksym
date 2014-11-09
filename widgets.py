@@ -15,7 +15,7 @@ class Progressbar(object):
         self.bgcolor = bgcolor
         self.border_color = border_color
         self.label = label
-        self.font = pygame.font.SysFont('Arial', 14, bold=True)
+        self.font = pygame.font.SysFont('Arial', 15, bold=True)
 
     def draw(self, screen):
         res = pygame.Rect(self.x, self.y, self.width * self.percentage / 100,
