@@ -3,12 +3,11 @@ import os
 import pygame
 import kezmenu
 
-from custom import Custom
+from main import Custom
 
 
 class Menu(object):
     running = True
-
     def main(self, screen):
         clock = pygame.time.Clock()
         background = pygame.image.load(os.path.join('img', 'background.png'))

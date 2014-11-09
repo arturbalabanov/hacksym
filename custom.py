@@ -3,17 +3,17 @@ import os
 import pygame
 import kezmenu
 
-from custom import Custom
+from main import Game
 
 
-class Menu(object):
+class Custom(object):
     running = True
 
     def main(self, screen):
         clock = pygame.time.Clock()
         background = pygame.image.load(os.path.join('img', 'background.png'))
         menu = kezmenu.KezMenu(
-            ['Play!', lambda: Custom().main(screen)],
+            ['Done!', lambda: Game().main(screen)],
             ['Options', lambda: setattr(self, 'running', True)],
             ['Quit', lambda: setattr(self, 'running', False)],
         )
@@ -31,4 +31,4 @@ class Menu(object):
 if __name__ == '__main__':
     pygame.init()
     screen = pygame.display.set_mode((640, 480))
-    Menu().main(screen)
+    Custom().main(screen)
