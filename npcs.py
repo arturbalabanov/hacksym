@@ -22,7 +22,7 @@ class Mentor(BaseCharacer):
 
     def visited(self, player):
         print 'Visited'
-        self.change_to_random_place(self.locations)
+        self.change_to_random_place()
 
     def update(self, dt, game):
         pass

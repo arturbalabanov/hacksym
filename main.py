@@ -30,9 +30,11 @@ class Game(object):
 
         # self.test_progressbar = Progressbar(140, 20, 33, (0, 0, 200),
         #                                     (0, 0, 0), "Programming")
+        mentor_exists = False
         while 1:
             dt = clock.tick(Options.FPS)
 
+            place = 1
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     return
@@ -44,12 +46,23 @@ class Game(object):
                     return
                 if event.type == pygame.KEYDOWN and \
                         event.key == pygame.K_m:
-                    mc = mentor_spawn_points[1]
+                    mentor_exists = True
+                    mc = mentor_spawn_points[place]
                     self.m = Mentor((mc.px, mc.py), mentor_spawn_points,
                                     self.sprites)
+
                 if event.type == pygame.KEYDOWN and \
                         event.key == pygame.K_c:
                     self.m.change_to_random_place()
+
+            if mentor_exists:
+                last = self.player.rect.copy()
+                print last.right
+                new = self.player.rect
+                cell = self.m.rect
+                print cell.left
+                if last.colliderect(cell):
+                    self.m.visited(self.player)
 
             self.tilemap.update(dt / 1000., self)
             sprites.update(dt / 1000., self)
