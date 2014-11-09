@@ -18,13 +18,13 @@ class Player(BaseCharacer):
         last = self.rect.copy()
 
         key = pygame.key.get_pressed()
-        if key[pygame.K_LEFT]:
+        if key[pygame.K_LEFT] or key[pygame.K_h]:
             self.rect.x -= self.SPEED * dt
-        if key[pygame.K_RIGHT]:
+        if key[pygame.K_RIGHT] or key[pygame.K_l]:
             self.rect.x += self.SPEED * dt
-        if key[pygame.K_UP]:
+        if key[pygame.K_UP] or key[pygame.K_k]:
             self.rect.y -= self.SPEED * dt
-        if key[pygame.K_DOWN]:
+        if key[pygame.K_DOWN] or key[pygame.K_j]:
             self.rect.y += self.SPEED * dt
 
         new = self.rect

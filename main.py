@@ -19,7 +19,8 @@ class Game(object):
 
         self.sprites = tmx.SpriteLayer()
         start_cell = self.tilemap.layers['triggers'].find('player')[0]
-        self.player = Player((start_cell.px, start_cell.py), self.sprites)
+        self.player = Player((start_cell.px, start_cell.py),
+                             5, 3, 5, self.sprites)
         self.tilemap.layers.append(self.sprites)
 
         # self.test_progressbar = Progressbar(140, 20, 33, (0, 0, 200),
