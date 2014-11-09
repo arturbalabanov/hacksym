@@ -45,10 +45,11 @@ class Game(object):
                 if event.type == pygame.KEYDOWN and \
                         event.key == pygame.K_m:
                     mc = mentor_spawn_points[1]
-                    self.m = Mentor((mc.px, mc.py), self.sprites)
+                    self.m = Mentor((mc.px, mc.py), mentor_spawn_points,
+                                    self.sprites)
                 if event.type == pygame.KEYDOWN and \
                         event.key == pygame.K_c:
-                    self.m.change_to_random_place(mentor_spawn_points)
+                    self.m.change_to_random_place()
 
             self.tilemap.update(dt / 1000., self)
             sprites.update(dt / 1000., self)
