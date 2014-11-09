@@ -57,8 +57,14 @@ class Team(object):
 
         while self.running:
             # very bad design ahead, take a pokemon with you
+
             menu.update(pygame.event.get(), clock.tick(30)/1000.)
             screen.blit(background, (0, 0))
+            for event in pygame.event.get():
+                if event.type == pygame.MOUSEBUTTONDOWN:
+                    x, y = event.pos
+                    if rect10.collidepoint(x, y):
+                        print 'click'
             pygame.draw.rect(screen, (255, 0, 0), rect1)
             pygame.draw.rect(screen, (current), rect2)
             pygame.draw.rect(screen, (current), rect3)
@@ -87,23 +93,23 @@ class Team(object):
                         True, (0, 0, 0), (0, 0)), rect15)
             screen.blit(font_little.render("Soft Skills 11",
                         True, (0, 0, 0), (0, 0)), rect18)
-            screen.blit(font_little.render("Programming 11",
+            screen.blit(font_little.render("Programming 3",
                         True, (0, 0, 0), (0, 0)), rect20)
-            screen.blit(font_little.render("Programming 6",
+            screen.blit(font_little.render("Programming 7",
                         True, (0, 0, 0), (0, 0)), rect23)
-            screen.blit(font_little.render("Programming 1",
+            screen.blit(font_little.render("Programming 8",
                         True, (0, 0, 0), (0, 0)), rect26)
-            screen.blit(font_little.render("Design 0",
+            screen.blit(font_little.render("Design 8",
                         True, (0, 0, 0), (0, 0)), rect21)
-            screen.blit(font_little.render("Design 6",
+            screen.blit(font_little.render("Design 7",
                         True, (0, 0, 0), (0, 0)), rect24)
-            screen.blit(font_little.render("Design 5",
+            screen.blit(font_little.render("Design 4",
                         True, (0, 0, 0), (0, 0)), rect27)
-            screen.blit(font_little.render("Soft Skills 1",
+            screen.blit(font_little.render("Soft Skills 3",
                         True, (0, 0, 0), (0, 0)), rect22)
-            screen.blit(font_little.render("Soft Skills 6",
+            screen.blit(font_little.render("Soft Skills 7",
                         True, (0, 0, 0), (0, 0)), rect25)
-            screen.blit(font_little.render("Soft Skills 11",
+            screen.blit(font_little.render("Soft Skills 2",
                         True, (0, 0, 0), (0, 0)), rect28)
             screen.blit(teammate, rect2)
             screen.blit(teammate, rect3)
