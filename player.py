@@ -8,7 +8,7 @@ from characters import BaseCharacer
 class Player(BaseCharacer):
     SPEED = 500
 
-    def __init__(self, location, programming=0, design=0, soft_skills=0,
+    def __init__(self, location, programming, design, soft_skills,
                  *groups):
         super(Player, self).__init__(location, *groups)
         self.programming = programming

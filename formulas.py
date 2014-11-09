@@ -1,5 +1,5 @@
 def mentor_successful_interaction(soft_skills):
-    return (soft_skills*2 + 10) / 100
+    return soft_skills*2 + 10
 
 
 def idea_generation_time(percent, team_soft_skills):

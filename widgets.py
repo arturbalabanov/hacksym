@@ -51,17 +51,18 @@ class Popup(object):
     WIDTH = 350
     HEIGHT = 120
 
-    def __init__(self, bgcolor, text):
+    def __init__(self, bgcolor, text, show=True):
         self.rect = pygame.Rect((Options.RESOLUTION[0] - self.WIDTH)/2,
                                 (Options.RESOLUTION[1] - self.HEIGHT)/2,
                                 self.WIDTH, self.HEIGHT)
         self.bgcolor = bgcolor
         self.text = text
         self._font = pygame.font.SysFont('Arial', 18, bold=False)
-        self.show = True
+        self.show = show
 
     def draw(self, screen):
         if self.show:
             pygame.draw.rect(screen, self.bgcolor, self.rect)
             screen.blit(
-                self._font.render(self.text, True, (0, 0, 0), (0, 0)), self.rect)
+                self._font.render(self.text, True, (0, 0, 0),
+                                  (0, 0)), self.rect)
