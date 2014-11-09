@@ -144,5 +144,35 @@
     <property name="blockers" value="blockers"/>
    </properties>
   </object>
+  <object name="blockers" x="65" y="224" width="28" height="60">
+   <properties>
+    <property name="blockers" value="blockers"/>
+   </properties>
+  </object>
+  <object name="blockers" x="256" y="99" width="28" height="60">
+   <properties>
+    <property name="blockers" value="blockers"/>
+   </properties>
+  </object>
+  <object name="blockers" x="259" y="386" width="28" height="60">
+   <properties>
+    <property name="blockers" value="blockers"/>
+   </properties>
+  </object>
+  <object name="blockers" x="161" y="416" width="28" height="60">
+   <properties>
+    <property name="blockers" value="blockers"/>
+   </properties>
+  </object>
+  <object name="blockers" x="66" y="322" width="28" height="60">
+   <properties>
+    <property name="blockers" value="blockers"/>
+   </properties>
+  </object>
+  <object name="blockers" x="1090" y="129" width="28" height="60">
+   <properties>
+    <property name="blockers" value="blockers"/>
+   </properties>
+  </object>
  </objectgroup>
 </map>
