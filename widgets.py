@@ -64,4 +64,5 @@ class Popup(object):
         if self.show:
             pygame.draw.rect(screen, self.bgcolor, self.rect)
             screen.blit(
-                self._font.render(self.text, True, (0, 0, 0), (0, 0)), self.rect)
+                self._font.render(self.text, True, (0, 0, 0),
+                                  (0, 0)), self.rect)

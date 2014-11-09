@@ -42,11 +42,11 @@ class Game(object):
                                                 (74, 119, 233),
                                                 (0, 0, 0), " Programming")
         self.design_progress = Progressbar(485, 75, 150, 23, self.d_pr,
-                                                (67, 166, 56),
-                                                (0, 0, 0), " Design")
+                                           (67, 166, 56),
+                                           (0, 0, 0), " Design")
         self.idea_progress = Progressbar(485, 125, 150, 23, self.i_pr,
-                                                (255, 128, 0),
-                                                (0, 0, 0), " Idea")
+                                         (255, 128, 0),
+                                         (0, 0, 0), " Idea")
         self.player_programming_skill = pygame.Rect(485, 200, 150, 23)
 
         self.popup = Popup((255, 128, 0), "", show=False)
@@ -88,7 +88,7 @@ class Game(object):
                 new = self.player.rect
                 cell = self.m.rect
                 if last.colliderect(cell):
-                    popup = self.m.visited(self.player)
+                    self.popup = self.m.visited(self.player)
 
             self.tilemap.update(dt / 1000., self)
             sprites.update(dt / 1000., self)
