@@ -2,16 +2,20 @@ import os
 
 import pygame
 
-from config import Options
+# from config import Options
 
 
 class Player(pygame.sprite.Sprite):
     SPEED = 500
 
-    def __init__(self, location, *groups):
+    def __init__(self, location, programming=0, design=0, soft_skills=0,
+                 *groups):
         super(Player, self).__init__(*groups)
         self.image = pygame.image.load(os.path.join('img', 'player.png'))
         self.rect = pygame.rect.Rect(location, self.image.get_size())
+        self.programming = programming
+        self.design = design
+        self.soft_skills = soft_skills
 
     def update(self, dt, game):
         last = self.rect.copy()
