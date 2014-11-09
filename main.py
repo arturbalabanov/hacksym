@@ -1,5 +1,3 @@
-import random
-
 import pygame
 
 import tmx
@@ -50,9 +48,7 @@ class Game(object):
                     self.m = Mentor((mc.px, mc.py), self.sprites)
                 if event.type == pygame.KEYDOWN and \
                         event.key == pygame.K_c:
-                    place = random.randint(0, 3)
-                    mc = mentor_spawn_points[place]
-                    self.m.change_place(mc.px, mc.py)
+                    self.m.change_to_random_place(mentor_spawn_points)
 
             self.tilemap.update(dt / 1000., self)
             sprites.update(dt / 1000., self)
