@@ -1,8 +1,8 @@
+import random
+
 import pygame
 
-# from config import Options
 from characters import BaseCharacer
-from npcs import Mentor
 
 
 class Player(BaseCharacer):
@@ -41,3 +41,19 @@ class Player(BaseCharacer):
 
         game.tilemap.set_focus(new.x, new.y)
 
+    def get_random_bonus(self):
+        skill = random.randint(1, 3)
+        count = random.randint(1, 5)
+        skill_name = None
+
+        if skill == 1:
+            self.programming += count
+            skill_name = 'programming skills'
+        elif skill == 2:
+            self.design += count
+            skill_name = 'design skills'
+        elif skill == 3:
+            self.soft_skills += count
+            skill_name = 'soft skills'
+
+        return (count, skill_name)

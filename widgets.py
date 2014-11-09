@@ -45,3 +45,23 @@ class Panel(object):
 
     def draw(self, screen):
         pygame.draw.rect(screen, self.bgcolor, self.rect)
+
+
+class Popup(object):
+    WIDTH = 350
+    HEIGHT = 120
+
+    def __init__(self, bgcolor, text):
+        self.rect = pygame.Rect((Options.RESOLUTION[0] - self.WIDTH)/2,
+                                (Options.RESOLUTION[1] - self.HEIGHT)/2,
+                                self.WIDTH, self.HEIGHT)
+        self.bgcolor = bgcolor
+        self.text = text
+        self._font = pygame.font.SysFont('Arial', 18, bold=False)
+        self.show = True
+
+    def draw(self, screen):
+        if self.show:
+            pygame.draw.rect(screen, self.bgcolor, self.rect)
+            screen.blit(
+                self._font.render(self.text, True, (0, 0, 0), (0, 0)), self.rect)
