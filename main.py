@@ -5,7 +5,7 @@ import pygame
 import tmx
 
 from player import Player
-from widgets import Panel, Progressbar
+from widgets import Panel, Progressbar, Popup
 from config import Options
 from npcs import Mentor
 
@@ -48,6 +48,9 @@ class Game(object):
                                                 (255, 128, 0),
                                                 (0, 0, 0), " Idea")
         self.player_programming_skill = pygame.Rect(485, 200, 150, 23)
+
+        self.popup = Popup((255, 128, 0), "This is a very long sentance")
+
         mentor_exists = False
         while 1:
             dt = clock.tick(Options.FPS)
@@ -75,16 +78,10 @@ class Game(object):
                 if event.type == pygame.KEYDOWN and \
                         event.key == pygame.K_RETURN:
                     return
-                if event.type == pygame.KEYDOWN and \
-                        event.key == pygame.K_m:
-                    mentor_exists = True
-                    mc = mentor_spawn_points[place]
-                    self.m = Mentor((mc.px, mc.py), mentor_spawn_points,
-                                    self.sprites)
-
-                if event.type == pygame.KEYDOWN and \
-                        event.key == pygame.K_c:
-                    self.m.change_to_random_place()
+                if event.type == pygame.MOUSEBUTTONDOWN:
+                    x, y = event.pos
+                    if self.popup.rect.collidepoint(x, y):
+                        self.popup.show = False
 
             if mentor_exists:
                 last = self.player.rect.copy()
@@ -103,6 +100,7 @@ class Game(object):
             self.programming_progress.draw(screen)
             self.design_progress.draw(screen)
             self.idea_progress.draw(screen)
+            self.popup.draw(screen)
             pygame.display.flip()
 
 

@@ -1,6 +1,7 @@
 import random
 
 from characters import BaseCharacer
+from formulas import mentor_successful_interaction
 
 
 class Mentor(BaseCharacer):
@@ -21,7 +22,16 @@ class Mentor(BaseCharacer):
         self.change_place(mc.px, mc.py)
 
     def visited(self, player):
-        print 'Visited'
+        chance = mentor_successful_interaction(player.soft_skills)
+        if chance < random.randint(1, 100):
+            player.soft_skills += 1
+            res = player.get_random_bonus()
+            print 'You got %d points in your %s.' % (res[0], res[1])
+            print '-----------------------'
+            print 'Programming: %d' % player.programming
+            print 'Design: %d' % player.design
+            print 'Soft skills: %d' % player.soft_skills
+
         self.change_to_random_place()
 
     def update(self, dt, game):
